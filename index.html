@@ -93,6 +93,7 @@
   <div class="container" id="quizContainer"></div>
   <button class="submit" onclick="submitQuiz()">Submit</button>
 
+  <script src="questions.js"></script>
   <script>
     const categories = {
       speed: 'Speed Limits',
@@ -104,28 +105,6 @@
       signals: 'Turn Signals & Right of Way',
       night: 'Night Driving',
       emergencies: 'Emergency Situations'
-    };
-
-    const questions = {
-      speed: [
-        {
-          question: "What is the maximum speed limit on most California highways?",
-          options: ["55 mph", "65 mph", "70 mph", "75 mph"],
-          answer: 1,
-          explanation: "Most California highways have a maximum speed limit of 65 mph unless posted otherwise."
-        },
-        // 14 more speed questions...
-      ],
-      laws: [
-        {
-          question: "When must you turn on your headlights?",
-          options: ["When visibility is less than 500 feet", "When it's raining", "30 minutes after sunset until 30 minutes before sunrise", "All of the above"],
-          answer: 3,
-          explanation: "California law requires headlights in all these situations."
-        },
-        // 14 more law questions...
-      ],
-      // Add more questions for each category as needed
     };
 
     let currentCategory = Object.keys(categories)[0];
