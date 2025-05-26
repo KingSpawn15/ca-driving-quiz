@@ -155,13 +155,247 @@ const questions = {
     },
     // 14 more night questions here...
   ],
-  emergencies: [
-    {
-      question: "What should you do if your brakes fail while driving?",
-      options: ["Turn off the engine", "Shift into neutral", "Pump the brakes and use emergency brake", "Jump out of the car"],
-      answer: 2,
-      explanation: "If your brakes fail, pump them and use the emergency brake."
-    },
-    // 14 more emergencies questions here...
-  ]
-};
+emergencies: [
+  {
+    question: "What should you do if your brakes fail while driving?",
+    options: shuffleOptions([
+      "Turn off the engine",
+      "Shift into neutral",
+      "Pump the brakes and use emergency brake",
+      "Jump out of the car"
+    ], 2),
+    answer: getNewAnswerIndex([
+      "Turn off the engine",
+      "Shift into neutral",
+      "Pump the brakes and use emergency brake",
+      "Jump out of the car"
+    ], 2)
+  },
+  {
+    question: "If you are in an accident and someone is injured, what is the first thing you should do?",
+    options: shuffleOptions([
+      "Move the injured person immediately",
+      "Call 911 and provide help",
+      "Leave the scene",
+      "Exchange insurance information"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Move the injured person immediately",
+      "Call 911 and provide help",
+      "Leave the scene",
+      "Exchange insurance information"
+    ], 1)
+  },
+  {
+    question: "What is the safest way to handle a tire blowout?",
+    options: shuffleOptions([
+      "Brake hard immediately",
+      "Hold the steering wheel firmly and gradually slow down",
+      "Turn sharply to the side of the road",
+      "Stop in the middle of the road"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Brake hard immediately",
+      "Hold the steering wheel firmly and gradually slow down",
+      "Turn sharply to the side of the road",
+      "Stop in the middle of the road"
+    ], 1)
+  },
+  {
+    question: "If your car catches fire while driving, what should you do?",
+    options: shuffleOptions([
+      "Drive until the fire goes out",
+      "Stop, turn off the engine, and move away from the car",
+      "Open the hood immediately",
+      "Pour water on the fire"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Drive until the fire goes out",
+      "Stop, turn off the engine, and move away from the car",
+      "Open the hood immediately",
+      "Pour water on the fire"
+    ], 1)
+  },
+  {
+    question: "What do you do if your accelerator sticks?",
+    options: shuffleOptions([
+      "Shift into neutral and apply brakes",
+      "Turn off the engine while driving",
+      "Jump out of the car",
+      "Accelerate more"
+    ], 0),
+    answer: getNewAnswerIndex([
+      "Shift into neutral and apply brakes",
+      "Turn off the engine while driving",
+      "Jump out of the car",
+      "Accelerate more"
+    ], 0)
+  },
+  {
+    question: "How should you react if an emergency vehicle approaches from behind with sirens on?",
+    options: shuffleOptions([
+      "Speed up and outrun it",
+      "Pull over to the right and stop",
+      "Ignore it and keep driving",
+      "Stop in the middle of the road"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Speed up and outrun it",
+      "Pull over to the right and stop",
+      "Ignore it and keep driving",
+      "Stop in the middle of the road"
+    ], 1)
+  },
+  {
+    question: "If your vehicle skids on ice, what is the proper action?",
+    options: shuffleOptions([
+      "Brake hard immediately",
+      "Turn your steering wheel in the direction of the skid",
+      "Turn the wheel away from the skid",
+      "Accelerate quickly"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Brake hard immediately",
+      "Turn your steering wheel in the direction of the skid",
+      "Turn the wheel away from the skid",
+      "Accelerate quickly"
+    ], 1)
+  },
+  {
+    question: "When you experience hydroplaning, what should you do?",
+    options: shuffleOptions([
+      "Brake hard and steer off the road",
+      "Slow down gradually and avoid braking",
+      "Accelerate to regain traction",
+      "Turn sharply"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Brake hard and steer off the road",
+      "Slow down gradually and avoid braking",
+      "Accelerate to regain traction",
+      "Turn sharply"
+    ], 1)
+  },
+  {
+    question: "If you are caught in fog, what is the best way to drive?",
+    options: shuffleOptions([
+      "Use high-beam headlights",
+      "Use low-beam headlights and drive slowly",
+      "Drive at normal speed",
+      "Turn off your headlights"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Use high-beam headlights",
+      "Use low-beam headlights and drive slowly",
+      "Drive at normal speed",
+      "Turn off your headlights"
+    ], 1)
+  },
+  {
+    question: "If your vehicle stalls on railroad tracks and a train is approaching, what should you do?",
+    options: shuffleOptions([
+      "Try to start the engine again",
+      "Get out and run toward the train",
+      "Get out and run away from the train",
+      "Stay in the vehicle"
+    ], 2),
+    answer: getNewAnswerIndex([
+      "Try to start the engine again",
+      "Get out and run toward the train",
+      "Get out and run away from the train",
+      "Stay in the vehicle"
+    ], 2)
+  },
+  {
+    question: "If you see a stopped emergency vehicle with flashing lights on the road, what is required?",
+    options: shuffleOptions([
+      "Slow down and move over one lane if possible",
+      "Keep driving at normal speed",
+      "Stop immediately",
+      "Ignore the vehicle"
+    ], 0),
+    answer: getNewAnswerIndex([
+      "Slow down and move over one lane if possible",
+      "Keep driving at normal speed",
+      "Stop immediately",
+      "Ignore the vehicle"
+    ], 0)
+  },
+  {
+    question: "What is the proper way to use your horn in an emergency?",
+    options: shuffleOptions([
+      "Constantly honk to alert all vehicles",
+      "Use it to avoid collisions or warn others",
+      "Use it to express anger",
+      "Never use it"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Constantly honk to alert all vehicles",
+      "Use it to avoid collisions or warn others",
+      "Use it to express anger",
+      "Never use it"
+    ], 1)
+  },
+  {
+    question: "If your headlights suddenly go out at night, what should you do?",
+    options: shuffleOptions([
+      "Turn on your hazard lights and slow down",
+      "Keep driving at the same speed",
+      "Turn on your high beams",
+      "Turn off the car"
+    ], 0),
+    answer: getNewAnswerIndex([
+      "Turn on your hazard lights and slow down",
+      "Keep driving at the same speed",
+      "Turn on your high beams",
+      "Turn off the car"
+    ], 0)
+  },
+  {
+    question: "If you are driving and feel drowsy, what should you do?",
+    options: shuffleOptions([
+      "Open the windows and keep driving",
+      "Stop and rest or switch drivers",
+      "Drink coffee and keep driving",
+      "Ignore it and drive faster"
+    ], 1),
+    answer: getNewAnswerIndex([
+      "Open the windows and keep driving",
+      "Stop and rest or switch drivers",
+      "Drink coffee and keep driving",
+      "Ignore it and drive faster"
+    ], 1)
+  },
+  {
+    question: "If you hit a parked car and cannot find the owner, what should you do?",
+    options: shuffleOptions([
+      "Leave a note with your information",
+      "Drive away quickly",
+      "Call the police immediately",
+      "Ignore it"
+    ], 0),
+    answer: getNewAnswerIndex([
+      "Leave a note with your information",
+      "Drive away quickly",
+      "Call the police immediately",
+      "Ignore it"
+    ], 0)
+  }
+];
+
+// Helper function to shuffle options and return new options array
+function shuffleOptions(options, correctIndex) {
+  const optionsCopy = [...options];
+  // Swap correct option with random position
+  const randomIndex = Math.floor(Math.random() * optionsCopy.length);
+  const temp = optionsCopy[randomIndex];
+  optionsCopy[randomIndex] = optionsCopy[correctIndex];
+  optionsCopy[correctIndex] = temp;
+  return optionsCopy;
+}
+
+// Helper to get the new index of the correct answer after shuffling
+function getNewAnswerIndex(originalOptions, originalCorrectIndex) {
+  const shuffled = shuffleOptions(originalOptions, originalCorrectIndex);
+  return shuffled.indexOf(originalOptions[originalCorrectIndex]);
+}
