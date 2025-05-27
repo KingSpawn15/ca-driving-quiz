@@ -22,6 +22,116 @@
           "question": "What is the speed limit in a school zone?",
           "options": ["15 mph", "25 mph", "35 mph", "45 mph"],
           "answer": "25 mph"
+        },
+        {
+          "question": "What is the maximum speed limit on most California highways?",
+          "options": ["55 mph", "65 mph", "70 mph", "75 mph"],
+          "answer": "65 mph"
+        }
+      ]
+    },
+    {
+      "name": "Right of Way",
+      "questions": [
+        {
+          "question": "At an intersection with no signs or signals, who has the right of way?",
+          "options": ["The driver on the left", "The driver on the right", "Whoever arrives first", "Pedestrians"],
+          "answer": "The driver on the right"
+        },
+        {
+          "question": "When turning left at a green light, you must:",
+          "options": ["Yield to oncoming traffic", "Speed through", "Stop and wait", "Turn immediately"],
+          "answer": "Yield to oncoming traffic"
+        }
+      ]
+    },
+    {
+      "name": "Lane Control",
+      "questions": [
+        {
+          "question": "What do broken white lines mean?",
+          "options": ["Do not cross", "Passing allowed", "Slow zone", "No lane change"],
+          "answer": "Passing allowed"
+        },
+        {
+          "question": "What is a center left turn lane used for?",
+          "options": ["Passing", "Parking", "Left turns", "U-turns only"],
+          "answer": "Left turns"
+        }
+      ]
+    },
+    {
+      "name": "Parking",
+      "questions": [
+        {
+          "question": "What does a red curb mean?",
+          "options": ["No stopping", "Loading zone", "Permit parking", "Disabled parking"],
+          "answer": "No stopping"
+        },
+        {
+          "question": "How far must you park from a fire hydrant?",
+          "options": ["10 feet", "15 feet", "20 feet", "5 feet"],
+          "answer": "15 feet"
+        }
+      ]
+    },
+    {
+      "name": "Alcohol and Drugs",
+      "questions": [
+        {
+          "question": "What is the legal BAC limit for drivers over 21?",
+          "options": ["0.01%", "0.05%", "0.08%", "0.10%"],
+          "answer": "0.08%"
+        },
+        {
+          "question": "Driving under the influence of marijuana is:",
+          "options": ["Legal with a prescription", "Illegal", "Okay if under 21", "Legal on weekends"],
+          "answer": "Illegal"
+        }
+      ]
+    },
+    {
+      "name": "Intersections",
+      "questions": [
+        {
+          "question": "When two vehicles arrive at a four-way stop at the same time, who goes first?",
+          "options": ["The driver on the left", "The driver on the right", "The larger vehicle", "The fastest driver"],
+          "answer": "The driver on the right"
+        },
+        {
+          "question": "Flashing red traffic lights mean:",
+          "options": ["Go", "Yield", "Stop", "Speed up"],
+          "answer": "Stop"
+        }
+      ]
+    },
+    {
+      "name": "Driving in Fog",
+      "questions": [
+        {
+          "question": "When driving in fog, use:",
+          "options": ["High beams", "Low beams", "Parking lights", "Hazard lights"],
+          "answer": "Low beams"
+        },
+        {
+          "question": "In fog, you should:",
+          "options": ["Speed up", "Follow closely", "Use low beams and slow down", "Use high beams"],
+          "answer": "Use low beams and slow down"
+        }
+      ]
+    },
+    {
+      "name": "Defensive Driving",
+      "questions": [
+        {
+          "question": "A defensive driver:",
+          "options": ["Always assumes other drivers will follow the rules", "Is always cautious", "Drives aggressively", "Drives in the left lane only"],
+          "answer": "Is always cautious"
+        },
+        {
+          "question": "Scanning the road ahead helps you:",
+          "options": ["Speed up", "Avoid hazards early", "Tailgate safely", "Use your phone"],
+          "answer": "Avoid hazards early"
         }
       ]
     }
