@@ -1,83 +1,74 @@
-const questionsData = [
-  {
-    name: "Traffic Signs",
-    questions: [
-      {
-        question: "What does a red octagon sign mean?",
-        choices: [
-          "Stop",
-          "Yield",
-          "Do not enter",
-          "Speed limit"
-        ],
-        correctIndex: 0,
-        explanation: "A red octagon always means Stop."
-      },
-      {
-        question: "What should you do when you see a yellow diamond-shaped sign?",
-        choices: [
-          "Stop immediately",
-          "Prepare to stop",
-          "Be cautious, warning of hazards",
-          "Pedestrian crossing"
-        ],
-        correctIndex: 2,
-        explanation: "Yellow diamond signs warn you of hazards or changes ahead."
-      },
-      {
-        question: "What does a flashing red light mean at an intersection?",
-        choices: [
-          "Stop, then proceed when safe",
-          "Proceed with caution",
-          "Traffic light is malfunctioning",
-          "Pedestrian crossing"
-        ],
-        correctIndex: 0,
-        explanation: "A flashing red light means stop, then proceed when safe."
-      },
-      {
-        question: "What is the meaning of a 'No U-turn' sign?",
-        choices: [
-          "U-turns are allowed",
-          "U-turns are prohibited",
-          "Turn left only",
-          "Yield to U-turns"
-        ],
-        correctIndex: 1,
-        explanation: "No U-turn means U-turns are prohibited at that location."
-      }
-    ],
-  },
+let questionsData = {}; // will load questions file
+let currentQuestions = [];
+let currentCategory = '';
 
-  // Add 8 more categories here with the same structure
-  // For brevity, only one more category is shown below
-
-  {
-    name: "Challenging Questions (Most Often Incorrect)",
-    questions: [
-      {
-        question: "When making a left turn from a two-way street onto a one-way street, which lane should you turn into?",
-        choices: [
-          "Any lane",
-          "The left lane",
-          "The right lane",
-          "The middle lane"
-        ],
-        correctIndex: 1,
-        explanation: "You must turn into the left lane of the one-way street."
-      },
-      {
-        question: "What is the correct procedure if your vehicle begins to hydroplane?",
-        choices: [
-          "Brake hard immediately",
-          "Take your foot off the gas and steer straight",
-          "Accelerate to regain traction",
-          "Turn sharply to correct"
-        ],
-        correctIndex: 1,
-        explanation: "Take your foot off the gas and steer straight until you regain traction."
-      }
-      // Add more questions as needed
-    ],
+document.getElementById('startBtn').addEventListener('click', () => {
+  const categorySelect = document.getElementById('categories');
+  currentCategory = categorySelect.value;
+  
+  if (!currentCategory) {
+    alert('Please select a category.');
+    return;
   }
-];
+  
+  fetch('questions.json')
+    .then(res => res.json())
+    .then(data => {
+      questionsData = data;
+      loadQuestions();
+    });
+});
+
+function loadQuestions() {
+  currentQuestions = questionsData[currentCategory];
+  let quizHTML = '';
+  
+  currentQuestions.forEach((q, index) => {
+    quizHTML += `<div class="question" data-index="${index}">
+      <p>${index + 1}. ${q.question}</p>
+      <ul class="choices">`;
+    q.choices.forEach((choice, i) => {
+      quizHTML += `<li>
+        <label>
+          <input type="radio" name="question${index}" value="${i}">
+          ${choice}
+        </label>
+      </li>`;
+    });
+    quizHTML += `</ul></div>`;
+  });
+  
+  quizHTML += `<button id="submitBtn">Submit</button>`;
+  document.getElementById('quiz-container').innerHTML = quizHTML;
+  
+  document.getElementById('submitBtn').addEventListener('click', evaluateAnswers);
+}
+
+function evaluateAnswers() {
+  let score = 0;
+  currentQuestions.forEach((q, index) => {
+    const selected = document.querySelector(`input[name="question${index}"]:checked`);
+    const questionDiv = document.querySelector(`div[data-index="${index}"]`);
+    
+    if (selected) {
+      const selectedAnswer = parseInt(selected.value);
+      if (selectedAnswer === q.answer) {
+        score++;
+        questionDiv.classList.remove('incorrect');
+        questionDiv.classList.add('correct');
+      } else {
+        questionDiv.classList.remove('correct');
+        questionDiv.classList.add('incorrect');
+      }
+    } else {
+      // No answer selected
+      questionDiv.classList.remove('correct');
+      questionDiv.classList.add('incorrect');
+    }
+    // Show explanations
+    const explanation = document.createElement('p');
+    explanation.innerText = `Explanation: ${q.explanation}`;
+    questionDiv.appendChild(explanation);
+  });
+  document.getElementById('result').innerText = `You scored ${score} out of ${currentQuestions.length}`;
+}
