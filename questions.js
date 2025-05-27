@@ -123,7 +123,7 @@ const questions = {
       options: ["Brake hard immediately", "Hold the steering wheel firmly and gradually slow down", "Turn sharply to the side of the road", "Stop in the middle of the road"],
       answer: 1,
       explanation: "Hold the steering wheel firmly and gradually slow down to maintain control."
-    },
+    }
     // Add more emergencies questions here...
   ]
 
