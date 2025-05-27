@@ -1,106 +1,164 @@
 <!DOCTYPE html>
-<script src="questions.js"></script>
-<script>
-  const categories = {
-    speed: 'Speed Limits',
-    laws: 'Driving Laws',
-    signs: 'Road Signs',
-    distance: 'Following & Stopping Distance',
-    parking: 'Parking Rules',
-    pedestrians: 'Pedestrian Safety',
-    signals: 'Turn Signals & Right of Way',
-    night: 'Night Driving',
-    emergencies: 'Emergency Situations'
-  };
-
-  let currentCategory = Object.keys(categories)[0];
-  let shuffledQuestions = {};  // to hold shuffled copies by category
-
-  // Shuffle options and update answer index for one question
-  function shuffleQuestionOptions(question) {
-    const options = [...question.options];
-    const correctAnswer = question.options[question.answer];
-    for (let i = options.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [options[i], options[j]] = [options[j], options[i]];
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>California Driving Test Questions</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1em;
+      background-color: #f9f9f9;
+      color: #333;
     }
-    const newAnswerIndex = options.indexOf(correctAnswer);
-    return { ...question, options, answer: newAnswerIndex };
-  }
+    h1 {
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    .category {
+      margin-bottom: 2em;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1em;
+    }
+    .category h2 {
+      cursor: pointer;
+      background-color: #007acc;
+      color: white;
+      padding: 0.5em;
+      border-radius: 4px;
+      user-select: none;
+    }
+    .questions {
+      margin-top: 1em;
+      display: none;
+    }
+    .question-block {
+      background-color: white;
+      margin-bottom: 1em;
+      padding: 1em;
+      border-radius: 4px;
+      box-shadow: 0 0 4px #ccc;
+    }
+    .question-text {
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    .choices label {
+      display: block;
+      margin-bottom: 0.3em;
+      cursor: pointer;
+    }
+    button {
+      padding: 0.7em 1.5em;
+      font-size: 1em;
+      background-color: #007acc;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: default;
+    }
+    .explanation {
+      margin-top: 0.5em;
+      font-style: italic;
+    }
+    .correct {
+      background-color: #d4edda;
+      border-left: 6px solid #28a745;
+    }
+    .incorrect {
+      background-color: #f8d7da;
+      border-left: 6px solid #dc3545;
+    }
+    #score {
+      font-size: 1.2em;
+      font-weight: bold;
+      margin-top: 1.5em;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>California Driving Test Questions</h1>
 
-  // Prepare all categories with shuffled questions (deep copy + shuffle)
-  function prepareShuffledQuestions() {
-    Object.keys(categories).forEach(cat => {
-      if (questions[cat]) {
-        shuffledQuestions[cat] = questions[cat].map(q => shuffleQuestionOptions(q));
-      } else {
-        shuffledQuestions[cat] = [];
-      }
-    });
-  }
+  <div id="categories"></div>
 
-  function loadCategoryTabs() {
-    const tabs = document.getElementById('categoryTabs');
-    tabs.innerHTML = '';
-    Object.entries(categories).forEach(([key, label]) => {
-      const btn = document.createElement('button');
-      btn.textContent = label;
-      btn.className = key === currentCategory ? 'active' : '';
-      btn.onclick = () => {
-        currentCategory = key;
-        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        loadQuestions();
-      };
-      tabs.appendChild(btn);
-    });
-  }
+  <button id="submit-btn">Submit Answers</button>
 
-  function loadQuestions() {
-    const container = document.getElementById('quizContainer');
-    container.innerHTML = '';
-    const qs = shuffledQuestions[currentCategory] || [];
-    qs.forEach((q, i) => {
-      const div = document.createElement('div');
-      div.className = 'question';
-      div.id = `q-${i}`;
-      div.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>
-        ${q.image ? `<img src="${q.image}" alt="Question Image">` : ''}
-        ${q.options.map((opt, j) => `
-          <div><label><input type="radio" name="q${i}" value="${j}"> ${opt}</label></div>
-        `).join('')}`;
-      container.appendChild(div);
-    });
-  }
+  <div id="score"></div>
 
-  function submitQuiz() {
-    const qs = shuffledQuestions[currentCategory] || [];
-    qs.forEach((q, i) => {
-      const radios = document.getElementsByName(`q${i}`);
-      const selected = [...radios].find(r => r.checked);
-      const div = document.getElementById(`q-${i}`);
-      div.classList.remove('correct', 'incorrect'); // clear old classes
+  <script src="questions.js"></script>
+  <script>
+    const container = document.getElementById('categories');
+    const submitBtn = document.getElementById('submit-btn');
+    const scoreDiv = document.getElementById('score');
+    let totalQuestions = 0;
 
-      if (selected && parseInt(selected.value) === q.answer) {
-        div.classList.add('correct');
-      } else {
-        div.classList.add('incorrect');
-      }
+    questionsData.forEach((category, catIndex) => {
+      // Category container
+      const categoryDiv = document.createElement('div');
+      categoryDiv.classList.add('category');
 
-      if (!div.querySelector('.explanation')) {
-        const exp = document.createElement('div');
-        exp.className = 'explanation';
-        exp.textContent = `Explanation: ${q.explanation}`;
-        div.appendChild(exp);
-      }
-    });
-  }
+      // Category heading with toggle
+      const heading = document.createElement('h2');
+      heading.textContent = category.name;
+      heading.addEventListener('click', () => {
+        const qDiv = categoryDiv.querySelector('.questions');
+        qDiv.style.display = (qDiv.style.display === 'block') ? 'none' : 'block';
+      });
 
-  // Initialize
-  prepareShuffledQuestions();
-  loadCategoryTabs();
-  loadQuestions();
+      // Questions container
+      const questionsDiv = document.createElement('div');
+      questionsDiv.classList.add('questions');
 
-  // Expose submitQuiz globally if needed
-  window.submitQuiz = submitQuiz;
-</script>
+      // Create question blocks with choices
+      category.questions.forEach((q, qIndex) => {
+        totalQuestions++;
+
+        const qBlock = document.createElement('div');
+        qBlock.classList.add('question-block');
+
+        const qText = document.createElement('div');
+        qText.classList.add('question-text');
+        qText.textContent = `${catIndex + 1}.${qIndex + 1} ${q.question}`;
+        qBlock.appendChild(qText);
+
+        const choicesDiv = document.createElement('div');
+        choicesDiv.classList.add('choices');
+
+        q.choices.forEach((choice, cIndex) => {
+          const id = `cat${catIndex}_q${qIndex}_c${cIndex}`;
+
+          const label = document.createElement('label');
+          label.setAttribute('for', id);
+
+          const radio = document.createElement('input');
+          radio.type = 'radio';
+          radio.name = `cat${catIndex}_q${qIndex}`;
+          radio.id = id;
+          radio.value = cIndex;
+
+          label.appendChild(radio);
+          label.appendChild(document.createTextNode(choice));
+          choicesDiv.appendChild(label);
+        });
+
+        qBlock.appendChild(choicesDiv);
+
+        // Explanation container (hidden initially)
+        const explDiv = document.createElement('div');
+        explDiv.classList.add('explanation');
+        explDiv.style.display = 'none';
+        qBlock.appendChild(explDiv);
+
+        questionsDiv.appendChild(qBlock);
+      });
+
+      categoryDiv.appendChild(heading);
+      categoryDiv.appendChild
