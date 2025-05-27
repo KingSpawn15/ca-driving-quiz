@@ -2,36 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>CA Driving Test Quiz</title>
-  <style>
-    /* Basic styles for the quiz */
-    body { font-family: Arial, sans-serif; padding: 20px; }
-    .category-selector { margin-bottom: 20px; }
-    .question { margin-top: 20px; }
-    .choices { list-style: none; padding: 0; }
-    .choices li { margin: 5px 0; }
-    .correct { background-color: #c8e6c9; } /* green */
-    .incorrect { background-color: #ffcdd2; } /* red */
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Quiz</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<h1>CA Driving Test Quiz</h1>
-
-<div class="category-selector">
-  <label for="categories">Choose a category:</label>
-  <select id="categories">
-    <option value="">Select a category</option>
-    <option value="category1">Category 1</option>
-    <option value="category2">Category 2</option>
-    <!-- add all categories -->
-  </select>
-  <button id="startBtn">Start Quiz</button>
-</div>
-
-<div id="quiz-container"></div>
-<div id="result"></div>
-
-<script src="app.js"></script>
+  <div class="quiz-container">
+    <h1 id="category-title"></h1>
+    <div id="question-box"></div>
+    <button id="next-btn" disabled>Next</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
