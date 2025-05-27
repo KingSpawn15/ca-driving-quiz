@@ -1,22 +1,45 @@
 let data;
-let categoryIndex = 0;
+let currentCategoryIndex = 0;
 let questionIndex = 0;
-let score = 0;
+let scores = [];
 
 const questionBox = document.getElementById("question-box");
 const nextBtn = document.getElementById("next-btn");
 const categoryTitle = document.getElementById("category-title");
+const scoreBox = document.getElementById("score-box");
+const categoryList = document.getElementById("category-list");
 
 fetch("quizData.json")
   .then(res => res.json())
   .then(json => {
     data = json;
-    showQuestion();
+    scores = data.categories.map(() => ({ correct: 0, total: 0 }));
+    renderCategoryButtons();
+    loadCategory(0);
   });
+
+function renderCategoryButtons() {
+  data.categories.forEach((cat, i) => {
+    const btn = document.createElement("button");
+    btn.textContent = cat.name;
+    btn.onclick = () => {
+      currentCategoryIndex = i;
+      questionIndex = 0;
+      loadCategory(i);
+    };
+    categoryList.appendChild(btn);
+  });
+}
+
+function loadCategory(index) {
+  questionIndex = 0;
+  showQuestion();
+  updateScoreDisplay();
+}
 
 function showQuestion() {
   nextBtn.disabled = true;
-  const category = data.categories[categoryIndex];
+  const category = data.categories[currentCategoryIndex];
   const question = category.questions[questionIndex];
 
   categoryTitle.textContent = `Category: ${category.name}`;
@@ -39,22 +62,43 @@ function showQuestion() {
 }
 
 nextBtn.addEventListener("click", () => {
-  const selected = document.querySelector("input[name=option]:checked").value;
-  const correct = data.categories[categoryIndex].questions[questionIndex].answer;
-  if (selected === correct) score++;
+  const selectedInput = document.querySelector("input[name=option]:checked");
+  const selected = selectedInput.value;
+  const category = data.categories[currentCategoryIndex];
+  const question = category.questions[questionIndex];
+  const correctAnswer = question.answer;
 
-  const category = data.categories[categoryIndex];
-  if (questionIndex < category.questions.length - 1) {
-    questionIndex++;
-  } else if (categoryIndex < data.categories.length - 1) {
-    categoryIndex++;
-    questionIndex = 0;
-  } else {
-    alert(`Quiz finished! Your score: ${score}`);
-    categoryIndex = 0;
-    questionIndex = 0;
-    score = 0;
+  // Score tracking
+  scores[currentCategoryIndex].total++;
+  if (selected === correctAnswer) {
+    scores[currentCategoryIndex].correct++;
   }
 
-  showQuestion();
+  // Color feedback
+  document.querySelectorAll("input[name=option]").forEach(input => {
+    const label = input.parentElement;
+    if (input.value === correctAnswer) {
+      label.classList.add("correct");
+    } else if (input.checked) {
+      label.classList.add("incorrect");
+    }
+    input.disabled = true;
+  });
+
+  updateScoreDisplay();
+  nextBtn.disabled = true;
+
+  setTimeout(() => {
+    if (questionIndex < category.questions.length - 1) {
+      questionIndex++;
+      showQuestion();
+    } else {
+      alert(`You've finished ${category.name}!`);
+    }
+  }, 1000);
 });
+
+function updateScoreDisplay() {
+  const s = scores[currentCategoryIndex];
+  scoreBox.innerHTML = `Score for ${data.categories[currentCategoryIndex].name}: ${s.correct} / ${s.total}`;
+}
