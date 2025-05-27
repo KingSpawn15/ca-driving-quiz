@@ -125,7 +125,7 @@ const questions = {
       explanation: "Hold the steering wheel firmly and gradually slow down to maintain control."
     },
     // Add more emergencies questions here...
-  ],
+  ]
 };
 
 export default questions;
