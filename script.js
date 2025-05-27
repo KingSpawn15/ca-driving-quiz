@@ -1,104 +1,83 @@
-let data;
-let currentCategoryIndex = 0;
-let questionIndex = 0;
-let scores = [];
+let quizData = null;
 
-const questionBox = document.getElementById("question-box");
-const nextBtn = document.getElementById("next-btn");
-const categoryTitle = document.getElementById("category-title");
-const scoreBox = document.getElementById("score-box");
-const categoryList = document.getElementById("category-list");
-
-fetch("quizData.json")
+fetch('quizData.json?' + Date.now()) // prevent caching
   .then(res => res.json())
-  .then(json => {
-    data = json;
-    scores = data.categories.map(() => ({ correct: 0, total: 0 }));
-    renderCategoryButtons();
-    loadCategory(0);
+  .then(data => {
+    quizData = data.categories;
+    displayCategoryButtons();
   });
 
-function renderCategoryButtons() {
-  data.categories.forEach((cat, i) => {
-    const btn = document.createElement("button");
+function displayCategoryButtons() {
+  const container = document.getElementById('category-buttons');
+  quizData.forEach((cat, index) => {
+    const btn = document.createElement('button');
+    btn.className = 'category-btn';
     btn.textContent = cat.name;
-    btn.onclick = () => {
-      currentCategoryIndex = i;
-      questionIndex = 0;
-      loadCategory(i);
-    };
-    categoryList.appendChild(btn);
+    btn.onclick = () => displayCategory(index);
+    container.appendChild(btn);
   });
 }
 
-function loadCategory(index) {
-  questionIndex = 0;
-  showQuestion();
-  updateScoreDisplay();
+function displayCategory(index) {
+  const quizArea = document.getElementById('quiz-area');
+  const category = quizData[index];
+  quizArea.innerHTML = `<h2>${category.name}</h2>`;
+  category.questions.forEach((q, i) => {
+    const div = document.createElement('div');
+    div.className = 'question-block';
+    div.innerHTML = `
+      <div class="question">${i + 1}. ${q.question}</div>
+      <div class="options">
+        ${q.options.map((opt, j) => `
+          <label>
+            <input type="radio" name="q${i}" value="${opt}" />
+            ${opt}
+          </label>
+        `).join('')}
+      </div>
+    `;
+    quizArea.appendChild(div);
+  });
+
+  const btn = document.createElement('button');
+  btn.textContent = 'Submit';
+  btn.className = 'submit-btn';
+  btn.onclick = () => gradeCategory(index);
+  quizArea.appendChild(btn);
+
+  const score = document.createElement('div');
+  score.className = 'score';
+  score.id = 'score-display';
+  quizArea.appendChild(score);
 }
 
-function showQuestion() {
-  nextBtn.disabled = true;
-  const category = data.categories[currentCategoryIndex];
-  const question = category.questions[questionIndex];
+function gradeCategory(index) {
+  const category = quizData[index];
+  let score = 0;
 
-  categoryTitle.textContent = `Category: ${category.name}`;
-  questionBox.innerHTML = `
-    <p>${question.question}</p>
-    <form id="quiz-form">
-      ${question.options.map((opt, i) => `
-        <label>
-          <input type="radio" name="option" value="${opt}"> ${opt}
-        </label><br>
-      `).join('')}
-    </form>
-  `;
+  category.questions.forEach((q, i) => {
+    const radios = document.getElementsByName('q' + i);
+    let selected = null;
 
-  document.querySelectorAll("input[name=option]").forEach(input => {
-    input.addEventListener("change", () => {
-      nextBtn.disabled = false;
+    for (let r of radios) {
+      if (r.checked) selected = r.value;
+    }
+
+    radios.forEach(r => {
+      const label = r.parentElement;
+      label.classList.remove('correct', 'incorrect');
+      if (r.value === q.answer) {
+        if (r.checked) {
+          label.classList.add('correct');
+          score++;
+        } else {
+          label.classList.add('correct');
+        }
+      } else if (r.checked) {
+        label.classList.add('incorrect');
+      }
     });
   });
-}
 
-nextBtn.addEventListener("click", () => {
-  const selectedInput = document.querySelector("input[name=option]:checked");
-  const selected = selectedInput.value;
-  const category = data.categories[currentCategoryIndex];
-  const question = category.questions[questionIndex];
-  const correctAnswer = question.answer;
-
-  // Score tracking
-  scores[currentCategoryIndex].total++;
-  if (selected === correctAnswer) {
-    scores[currentCategoryIndex].correct++;
-  }
-
-  // Color feedback
-  document.querySelectorAll("input[name=option]").forEach(input => {
-    const label = input.parentElement;
-    if (input.value === correctAnswer) {
-      label.classList.add("correct");
-    } else if (input.checked) {
-      label.classList.add("incorrect");
-    }
-    input.disabled = true;
-  });
-
-  updateScoreDisplay();
-  nextBtn.disabled = true;
-
-  setTimeout(() => {
-    if (questionIndex < category.questions.length - 1) {
-      questionIndex++;
-      showQuestion();
-    } else {
-      alert(`You've finished ${category.name}!`);
-    }
-  }, 1000);
-});
-
-function updateScoreDisplay() {
-  const s = scores[currentCategoryIndex];
-  scoreBox.innerHTML = `Score for ${data.categories[currentCategoryIndex].name}: ${s.correct} / ${s.total}`;
+  document.getElementById('score-display').textContent = `Score: ${score} / ${category.questions.length}`;
 }
