@@ -1,15 +1,18 @@
 {
   "category1": [
     {
-      "question": "Question text...",
-      "choices": ["Option 1", "Option 2", "Option 3", "Option 4"],
-      "answer": 2,
-      "explanation": "Explanation for the answer..."
-    },
-    ...
+      "question": "What does a red traffic light mean?",
+      "choices": ["Stop", "Go", "Proceed with caution", "Yield"],
+      "answer": 0,
+      "explanation": "A red traffic light indicates that you must stop."
+    }
   ],
   "category2": [
-    ...
-  ],
-  ...
+    {
+      "question": "When should you yield the right of way?",
+      "choices": ["To pedestrians", "To emergency vehicles", "At stop signs", "All of the above"],
+      "answer": 3,
+      "explanation": "You should yield to pedestrians, emergency vehicles, and at stop signs."
+    }
+  ]
 }
