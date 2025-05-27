@@ -1,0 +1,15 @@
+{
+  "category1": [
+    {
+      "question": "Question text...",
+      "choices": ["Option 1", "Option 2", "Option 3", "Option 4"],
+      "answer": 2,
+      "explanation": "Explanation for the answer..."
+    },
+    ...
+  ],
+  "category2": [
+    ...
+  ],
+  ...
+}
