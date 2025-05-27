@@ -100,24 +100,21 @@
     const scoreDiv = document.getElementById('score');
     let totalQuestions = 0;
 
+    // Render categories and questions
     questionsData.forEach((category, catIndex) => {
-      // Category container
       const categoryDiv = document.createElement('div');
       categoryDiv.classList.add('category');
 
-      // Category heading with toggle
       const heading = document.createElement('h2');
       heading.textContent = category.name;
       heading.addEventListener('click', () => {
         const qDiv = categoryDiv.querySelector('.questions');
-        qDiv.style.display = (qDiv.style.display === 'block') ? 'none' : 'block';
+        qDiv.style.display = qDiv.style.display === 'block' ? 'none' : 'block';
       });
 
-      // Questions container
       const questionsDiv = document.createElement('div');
       questionsDiv.classList.add('questions');
 
-      // Create question blocks with choices
       category.questions.forEach((q, qIndex) => {
         totalQuestions++;
 
@@ -151,7 +148,7 @@
 
         qBlock.appendChild(choicesDiv);
 
-        // Explanation container (hidden initially)
+        // Explanation div
         const explDiv = document.createElement('div');
         explDiv.classList.add('explanation');
         explDiv.style.display = 'none';
@@ -161,4 +158,48 @@
       });
 
       categoryDiv.appendChild(heading);
-      categoryDiv.appendChild
+      categoryDiv.appendChild(questionsDiv);
+      container.appendChild(categoryDiv);
+    });
+
+    submitBtn.addEventListener('click', () => {
+      let correctCount = 0;
+      let answeredCount = 0;
+
+      // Disable submit after submission to prevent multiple clicks
+      submitBtn.disabled = true;
+
+      // For each question, check answer
+      questionsData.forEach((category, catIndex) => {
+        category.questions.forEach((q, qIndex) => {
+          const radios = document.getElementsByName(`cat${catIndex}_q${qIndex}`);
+          const qBlock = radios[0].closest('.question-block');
+          const explDiv = qBlock.querySelector('.explanation');
+
+          let selectedValue = null;
+          radios.forEach(radio => {
+            if (radio.checked) {
+              selectedValue = parseInt(radio.value);
+              answeredCount++;
+            }
+            // Disable all radios after submission
+            radio.disabled = true;
+          });
+
+          if (selectedValue === q.correctIndex) {
+            qBlock.classList.add('correct');
+            explDiv.style.display = 'none';
+            correctCount++;
+          } else {
+            qBlock.classList.add('incorrect');
+            explDiv.textContent = `Explanation: ${q.explanation}`;
+            explDiv.style.display = 'block';
+          }
+        });
+      });
+
+      scoreDiv.textContent = `You answered ${correctCount} out of ${totalQuestions} questions correctly.`;
+    });
+  </script>
+</body>
+</html>
