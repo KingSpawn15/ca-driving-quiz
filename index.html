@@ -1,172 +1,105 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>California Driving Test Quiz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f5f5f5;
+<script src="questions.js"></script>
+<script>
+  const categories = {
+    speed: 'Speed Limits',
+    laws: 'Driving Laws',
+    signs: 'Road Signs',
+    distance: 'Following & Stopping Distance',
+    parking: 'Parking Rules',
+    pedestrians: 'Pedestrian Safety',
+    signals: 'Turn Signals & Right of Way',
+    night: 'Night Driving',
+    emergencies: 'Emergency Situations'
+  };
+
+  let currentCategory = Object.keys(categories)[0];
+  let shuffledQuestions = {};  // to hold shuffled copies by category
+
+  // Shuffle options and update answer index for one question
+  function shuffleQuestionOptions(question) {
+    const options = [...question.options];
+    const correctAnswer = question.options[question.answer];
+    for (let i = options.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [options[i], options[j]] = [options[j], options[i]];
     }
-    header {
-      background-color: #0074D9;
-      color: white;
-      text-align: center;
-      padding: 1em;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background-color: #ddd;
-    }
-    nav button {
-      background: none;
-      border: none;
-      padding: 10px 15px;
-      margin: 5px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-    nav button.active {
-      background-color: #0074D9;
-      color: white;
-      border-radius: 5px;
-    }
-    .container {
-      padding: 1em;
-      max-width: 900px;
-      margin: auto;
-    }
-    .question {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 1em;
-      margin-bottom: 1em;
-    }
-    .question img {
-      max-width: 100%;
-      height: auto;
-      margin: 10px 0;
-    }
-    .question.correct {
-      background-color: #d4edda;
-    }
-    .question.incorrect {
-      background-color: #f8d7da;
-    }
-    .explanation {
-      margin-top: 0.5em;
-      font-style: italic;
-      color: #333;
-    }
-    button.submit {
-      display: block;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      font-size: 1em;
-      margin: 20px auto;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
+    const newAnswerIndex = options.indexOf(correctAnswer);
+    return { ...question, options, answer: newAnswerIndex };
+  }
+
+  // Prepare all categories with shuffled questions (deep copy + shuffle)
+  function prepareShuffledQuestions() {
+    Object.keys(categories).forEach(cat => {
+      if (questions[cat]) {
+        shuffledQuestions[cat] = questions[cat].map(q => shuffleQuestionOptions(q));
+      } else {
+        shuffledQuestions[cat] = [];
       }
-      nav button {
-        width: 90%;
+    });
+  }
+
+  function loadCategoryTabs() {
+    const tabs = document.getElementById('categoryTabs');
+    tabs.innerHTML = '';
+    Object.entries(categories).forEach(([key, label]) => {
+      const btn = document.createElement('button');
+      btn.textContent = label;
+      btn.className = key === currentCategory ? 'active' : '';
+      btn.onclick = () => {
+        currentCategory = key;
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        loadQuestions();
+      };
+      tabs.appendChild(btn);
+    });
+  }
+
+  function loadQuestions() {
+    const container = document.getElementById('quizContainer');
+    container.innerHTML = '';
+    const qs = shuffledQuestions[currentCategory] || [];
+    qs.forEach((q, i) => {
+      const div = document.createElement('div');
+      div.className = 'question';
+      div.id = `q-${i}`;
+      div.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>
+        ${q.image ? `<img src="${q.image}" alt="Question Image">` : ''}
+        ${q.options.map((opt, j) => `
+          <div><label><input type="radio" name="q${i}" value="${j}"> ${opt}</label></div>
+        `).join('')}`;
+      container.appendChild(div);
+    });
+  }
+
+  function submitQuiz() {
+    const qs = shuffledQuestions[currentCategory] || [];
+    qs.forEach((q, i) => {
+      const radios = document.getElementsByName(`q${i}`);
+      const selected = [...radios].find(r => r.checked);
+      const div = document.getElementById(`q-${i}`);
+      div.classList.remove('correct', 'incorrect'); // clear old classes
+
+      if (selected && parseInt(selected.value) === q.answer) {
+        div.classList.add('correct');
+      } else {
+        div.classList.add('incorrect');
       }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>California Driving Test Quiz</h1>
-  </header>
-  <nav id="categoryTabs"></nav>
-  <div class="container" id="quizContainer"></div>
-  <button class="submit" onclick="submitQuiz()">Submit</button>
 
-  <script src="questions.js"></script>
-  <script>
-    const categories = {
-      speed: 'Speed Limits',
-      laws: 'Driving Laws',
-      signs: 'Road Signs',
-      distance: 'Following & Stopping Distance',
-      parking: 'Parking Rules',
-      pedestrians: 'Pedestrian Safety',
-      signals: 'Turn Signals & Right of Way',
-      night: 'Night Driving',
-      emergencies: 'Emergency Situations'
-    };
+      if (!div.querySelector('.explanation')) {
+        const exp = document.createElement('div');
+        exp.className = 'explanation';
+        exp.textContent = `Explanation: ${q.explanation}`;
+        div.appendChild(exp);
+      }
+    });
+  }
 
-    let currentCategory = Object.keys(categories)[0];
+  // Initialize
+  prepareShuffledQuestions();
+  loadCategoryTabs();
+  loadQuestions();
 
-    function loadCategoryTabs() {
-      const tabs = document.getElementById('categoryTabs');
-      tabs.innerHTML = '';
-      Object.entries(categories).forEach(([key, label]) => {
-        const btn = document.createElement('button');
-        btn.textContent = label;
-        btn.className = key === currentCategory ? 'active' : '';
-        btn.onclick = () => {
-          currentCategory = key;
-          document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-          loadQuestions();
-        };
-        tabs.appendChild(btn);
-      });
-    }
-
-    function loadQuestions() {
-      const container = document.getElementById('quizContainer');
-      container.innerHTML = '';
-      (questions[currentCategory] || []).forEach((q, i) => {
-        const div = document.createElement('div');
-        div.className = 'question';
-        div.id = `q-${i}`;
-        div.innerHTML = `<p><strong>Q${i + 1}:</strong> ${q.question}</p>
-          ${q.image ? `<img src="${q.image}" alt="Question Image">` : ''}
-          ${q.options.map((opt, j) => `
-            <div><label><input type="radio" name="q${i}" value="${j}"> ${opt}</label></div>
-          `).join('')}`;
-        container.appendChild(div);
-      });
-    }
-
-    function submitQuiz() {
-      (questions[currentCategory] || []).forEach((q, i) => {
-        const radios = document.getElementsByName(`q${i}`);
-        const selected = [...radios].find(r => r.checked);
-        const div = document.getElementById(`q-${i}`);
-        if (selected && parseInt(selected.value) === q.answer) {
-          div.classList.add('correct');
-        } else {
-          div.classList.add('incorrect');
-        }
-        if (!div.querySelector('.explanation')) {
-          const exp = document.createElement('div');
-          exp.className = 'explanation';
-          exp.textContent = `Explanation: ${q.explanation}`;
-          div.appendChild(exp);
-        }
-      });
-    }
-
-    loadCategoryTabs();
-    loadQuestions();
-  </script>
-
-  <script src="questions.js"></script>
-  <script src="main.js"></script>  <!-- Your main JS that uses questions.js -->
-  
-</body>
-</html>
+  // Expose submitQuiz globally if needed
+  window.submitQuiz = submitQuiz;
+</script>
