@@ -127,5 +127,4 @@ const questions = {
     // Add more emergencies questions here...
   ]
 
-
-export default questions;
+window.questions = questions;
