@@ -126,6 +126,6 @@ const questions = {
     },
     // Add more emergencies questions here...
   ]
-};
+
 
 export default questions;
