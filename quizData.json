@@ -1,27 +1,27 @@
 {
   "categories": [
     {
-      "name": "Math",
+      "name": "Traffic Signs",
       "questions": [
         {
-          "question": "What is 2 + 2?",
-          "options": ["3", "4", "5", "6"],
-          "answer": "4"
+          "question": "What does a red octagonal sign mean?",
+          "options": ["Yield", "Stop", "Do Not Enter", "Wrong Way"],
+          "answer": "Stop"
         },
         {
-          "question": "What is 5 × 3?",
-          "options": ["8", "15", "10", "20"],
-          "answer": "15"
+          "question": "What color are warning signs?",
+          "options": ["Red", "Blue", "Yellow", "Green"],
+          "answer": "Yellow"
         }
       ]
     },
     {
-      "name": "Science",
+      "name": "Speed Limits",
       "questions": [
         {
-          "question": "What planet is known as the Red Planet?",
-          "options": ["Earth", "Mars", "Jupiter", "Saturn"],
-          "answer": "Mars"
+          "question": "What is the speed limit in a school zone?",
+          "options": ["15 mph", "25 mph", "35 mph", "45 mph"],
+          "answer": "25 mph"
         }
       ]
     }
