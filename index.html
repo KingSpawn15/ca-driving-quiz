@@ -2,204 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>California Driving Test Questions</title>
+  <title>CA Driving Test Quiz</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 1em;
-      background-color: #f9f9f9;
-      color: #333;
-    }
-    h1 {
-      text-align: center;
-      margin-bottom: 1em;
-    }
-    .category {
-      margin-bottom: 2em;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 1em;
-    }
-    .category h2 {
-      cursor: pointer;
-      background-color: #007acc;
-      color: white;
-      padding: 0.5em;
-      border-radius: 4px;
-      user-select: none;
-    }
-    .questions {
-      margin-top: 1em;
-      display: none;
-    }
-    .question-block {
-      background-color: white;
-      margin-bottom: 1em;
-      padding: 1em;
-      border-radius: 4px;
-      box-shadow: 0 0 4px #ccc;
-    }
-    .question-text {
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    .choices label {
-      display: block;
-      margin-bottom: 0.3em;
-      cursor: pointer;
-    }
-    button {
-      padding: 0.7em 1.5em;
-      font-size: 1em;
-      background-color: #007acc;
-      border: none;
-      border-radius: 4px;
-      color: white;
-      cursor: pointer;
-      margin-top: 1em;
-    }
-    button:disabled {
-      background-color: #ccc;
-      cursor: default;
-    }
-    .explanation {
-      margin-top: 0.5em;
-      font-style: italic;
-    }
-    .correct {
-      background-color: #d4edda;
-      border-left: 6px solid #28a745;
-    }
-    .incorrect {
-      background-color: #f8d7da;
-      border-left: 6px solid #dc3545;
-    }
-    #score {
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-top: 1.5em;
-      text-align: center;
-    }
+    /* Basic styles for the quiz */
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .category-selector { margin-bottom: 20px; }
+    .question { margin-top: 20px; }
+    .choices { list-style: none; padding: 0; }
+    .choices li { margin: 5px 0; }
+    .correct { background-color: #c8e6c9; } /* green */
+    .incorrect { background-color: #ffcdd2; } /* red */
   </style>
 </head>
 <body>
-  <h1>California Driving Test Questions</h1>
 
-  <div id="categories"></div>
+<h1>CA Driving Test Quiz</h1>
 
-  <button id="submit-btn">Submit Answers</button>
+<div class="category-selector">
+  <label for="categories">Choose a category:</label>
+  <select id="categories">
+    <option value="">Select a category</option>
+    <option value="category1">Category 1</option>
+    <option value="category2">Category 2</option>
+    <!-- add all categories -->
+  </select>
+  <button id="startBtn">Start Quiz</button>
+</div>
 
-  <div id="score"></div>
+<div id="quiz-container"></div>
+<div id="result"></div>
 
-  <script src="questions.js"></script>
-  <script>
-    const container = document.getElementById('categories');
-    const submitBtn = document.getElementById('submit-btn');
-    const scoreDiv = document.getElementById('score');
-    let totalQuestions = 0;
-
-    // Render categories and questions
-    questionsData.forEach((category, catIndex) => {
-      const categoryDiv = document.createElement('div');
-      categoryDiv.classList.add('category');
-
-      const heading = document.createElement('h2');
-      heading.textContent = category.name;
-      heading.addEventListener('click', () => {
-        const qDiv = categoryDiv.querySelector('.questions');
-        qDiv.style.display = qDiv.style.display === 'block' ? 'none' : 'block';
-      });
-
-      const questionsDiv = document.createElement('div');
-      questionsDiv.classList.add('questions');
-
-      category.questions.forEach((q, qIndex) => {
-        totalQuestions++;
-
-        const qBlock = document.createElement('div');
-        qBlock.classList.add('question-block');
-
-        const qText = document.createElement('div');
-        qText.classList.add('question-text');
-        qText.textContent = `${catIndex + 1}.${qIndex + 1} ${q.question}`;
-        qBlock.appendChild(qText);
-
-        const choicesDiv = document.createElement('div');
-        choicesDiv.classList.add('choices');
-
-        q.choices.forEach((choice, cIndex) => {
-          const id = `cat${catIndex}_q${qIndex}_c${cIndex}`;
-
-          const label = document.createElement('label');
-          label.setAttribute('for', id);
-
-          const radio = document.createElement('input');
-          radio.type = 'radio';
-          radio.name = `cat${catIndex}_q${qIndex}`;
-          radio.id = id;
-          radio.value = cIndex;
-
-          label.appendChild(radio);
-          label.appendChild(document.createTextNode(choice));
-          choicesDiv.appendChild(label);
-        });
-
-        qBlock.appendChild(choicesDiv);
-
-        // Explanation div
-        const explDiv = document.createElement('div');
-        explDiv.classList.add('explanation');
-        explDiv.style.display = 'none';
-        qBlock.appendChild(explDiv);
-
-        questionsDiv.appendChild(qBlock);
-      });
-
-      categoryDiv.appendChild(heading);
-      categoryDiv.appendChild(questionsDiv);
-      container.appendChild(categoryDiv);
-    });
-
-    submitBtn.addEventListener('click', () => {
-      let correctCount = 0;
-      let answeredCount = 0;
-
-      // Disable submit after submission to prevent multiple clicks
-      submitBtn.disabled = true;
-
-      // For each question, check answer
-      questionsData.forEach((category, catIndex) => {
-        category.questions.forEach((q, qIndex) => {
-          const radios = document.getElementsByName(`cat${catIndex}_q${qIndex}`);
-          const qBlock = radios[0].closest('.question-block');
-          const explDiv = qBlock.querySelector('.explanation');
-
-          let selectedValue = null;
-          radios.forEach(radio => {
-            if (radio.checked) {
-              selectedValue = parseInt(radio.value);
-              answeredCount++;
-            }
-            // Disable all radios after submission
-            radio.disabled = true;
-          });
-
-          if (selectedValue === q.correctIndex) {
-            qBlock.classList.add('correct');
-            explDiv.style.display = 'none';
-            correctCount++;
-          } else {
-            qBlock.classList.add('incorrect');
-            explDiv.textContent = `Explanation: ${q.explanation}`;
-            explDiv.style.display = 'block';
-          }
-        });
-      });
-
-      scoreDiv.textContent = `You answered ${correctCount} out of ${totalQuestions} questions correctly.`;
-    });
-  </script>
+<script src="app.js"></script>
 </body>
 </html>
