@@ -126,5 +126,5 @@ const questions = {
     }
     // Add more emergencies questions here...
   ]
-
+}
 window.questions = questions;
