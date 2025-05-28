@@ -1,8 +1,8 @@
 {
   "categories": [
-    {
-      "name": "Traffic Signs",
-      "questions": [
+{
+  "name": "Traffic Signs",
+  "questions": [
         {
           "question": "What does a red octagonal sign mean?",
           "options": ["Yield", "Stop", "Do Not Enter", "Wrong Way"],
@@ -12,6 +12,71 @@
           "question": "What color are warning signs?",
           "options": ["Red", "Blue", "Yellow", "Green"],
           "answer": "Yellow"
+        },
+        {
+          "question": "A triangular sign pointing downward indicates:",
+          "options": ["Stop", "Yield", "No Entry", "Merge"],
+          "answer": "Yield"
+        },
+        {
+          "question": "A circular sign with a red line through a left-turning arrow means:",
+          "options": ["No U-turn", "Left turn only", "No left turn", "Yield to left turn"],
+          "answer": "No left turn"
+        },
+        {
+          "question": "What does a yellow diamond-shaped sign with a black cross indicate?",
+          "options": ["Hospital ahead", "Railroad crossing", "Intersection ahead", "Church zone"],
+          "answer": "Intersection ahead"
+        },
+        {
+          "question": "What does a blue rectangular sign usually indicate?",
+          "options": ["Construction zone", "Service information", "Warning", "Yield"],
+          "answer": "Service information"
+        },
+        {
+          "question": "What shape is a speed limit sign?",
+          "options": ["Octagon", "Diamond", "Rectangle", "Circle"],
+          "answer": "Rectangle"
+        },
+        {
+          "question": "What does a pentagon-shaped sign indicate?",
+          "options": ["School zone or crossing", "Stop", "Yield", "Do not enter"],
+          "answer": "School zone or crossing"
+        },
+        {
+          "question": "What color are construction signs?",
+          "options": ["Yellow", "White", "Orange", "Green"],
+          "answer": "Orange"
+        },
+        {
+          "question": "A white rectangular sign with black letters generally indicates:",
+          "options": ["Warning", "Regulation", "Guide", "Recreation"],
+          "answer": "Regulation"
+        },
+        {
+          "question": "A sign with two people walking and a horizontal line below means:",
+          "options": ["Pedestrian zone", "School crossing", "No pedestrians", "Playground"],
+          "answer": "School crossing"
+        },
+        {
+          "question": "What does a railroad crossing sign look like?",
+          "options": ["Red triangle", "White X with letters RR", "Yellow diamond", "Circular green sign"],
+          "answer": "White X with letters RR"
+        },
+        {
+          "question": "A sign with an arrow curving right and a line joining it from the left means:",
+          "options": ["Road narrows", "Merge right", "Sharp turn ahead", "Detour"],
+          "answer": "Merge right"
+        },
+        {
+          "question": "What does a sign showing a truck going downhill mean?",
+          "options": ["Truck prohibited", "Steep descent ahead", "Truck stop", "Overpass ahead"],
+          "answer": "Steep descent ahead"
+        },
+        {
+          "question": "What does a red circle with a white horizontal bar indicate?",
+          "options": ["Yield", "Stop", "Do Not Enter", "No Parking"],
+          "answer": "Do Not Enter"
         }
       ]
     },
@@ -27,6 +92,71 @@
           "question": "What is the maximum speed limit on most California highways?",
           "options": ["55 mph", "65 mph", "70 mph", "75 mph"],
           "answer": "65 mph"
+        },
+        {
+          "question": "What is the speed limit in a residential area unless posted otherwise?",
+          "options": ["15 mph", "25 mph", "35 mph", "45 mph"],
+          "answer": "25 mph"
+        },
+        {
+          "question": "When driving near schools, you must drive:",
+          "options": ["10 mph", "15 mph", "25 mph", "35 mph"],
+          "answer": "25 mph"
+        },
+        {
+          "question": "What is the speed limit in an alley?",
+          "options": ["10 mph", "15 mph", "20 mph", "25 mph"],
+          "answer": "15 mph"
+        },
+        {
+          "question": "What is the speed limit at a railroad crossing with no warning device?",
+          "options": ["10 mph", "15 mph", "25 mph", "30 mph"],
+          "answer": "15 mph"
+        },
+        {
+          "question": "When driving on a two-lane undivided highway, what is the maximum speed limit for vehicles towing trailers?",
+          "options": ["55 mph", "60 mph", "65 mph", "70 mph"],
+          "answer": "55 mph"
+        },
+        {
+          "question": "What is the speed limit in a business district?",
+          "options": ["15 mph", "25 mph", "35 mph", "45 mph"],
+          "answer": "25 mph"
+        },
+        {
+          "question": "On a freeway posted at 70 mph, you may drive:",
+          "options": ["Up to 75 mph", "At 80 mph if traffic allows", "70 mph or slower if safe", "At least 65 mph"],
+          "answer": "70 mph or slower if safe"
+        },
+        {
+          "question": "If you are driving slower than the flow of traffic in the fast lane, you should:",
+          "options": ["Stay in that lane", "Move to the right lane", "Speed up to match traffic", "Stop and yield"],
+          "answer": "Move to the right lane"
+        },
+        {
+          "question": "What is the posted speed limit in most alleys?",
+          "options": ["10 mph", "15 mph", "20 mph", "25 mph"],
+          "answer": "15 mph"
+        },
+        {
+          "question": "When passing streetcars, trolleys, or buses stopped at a safety zone, you must drive:",
+          "options": ["At full speed", "At 10 mph or less", "At 15 mph or less", "At 25 mph or less"],
+          "answer": "10 mph or less"
+        },
+        {
+          "question": "When children are present, and there is no posted speed limit, the speed limit is:",
+          "options": ["15 mph", "25 mph", "35 mph", "45 mph"],
+          "answer": "25 mph"
+        },
+        {
+          "question": "Driving too slowly can be:",
+          "options": ["Safe and encouraged", "Dangerous and illegal", "Helpful for traffic flow", "Only dangerous in rain"],
+          "answer": "Dangerous and illegal"
+        },
+        {
+          "question": "What should you do if driving at the posted speed limit but all other traffic is moving faster?",
+          "options": ["Continue at the posted limit", "Move to the right lane", "Speed up to match traffic", "Stop and wait"],
+          "answer": "Move to the right lane"
         }
       ]
     },
@@ -42,6 +172,71 @@
           "question": "When turning left at a green light, you must:",
           "options": ["Yield to oncoming traffic", "Speed through", "Stop and wait", "Turn immediately"],
           "answer": "Yield to oncoming traffic"
+        },
+        {
+          "question": "When two vehicles arrive at a four-way stop at the same time, who goes first?",
+          "options": ["The car on the left", "The larger vehicle", "The car on the right", "The faster vehicle"],
+          "answer": "The car on the right"
+        },
+        {
+          "question": "You must yield to pedestrians:",
+          "options": ["Only at marked crosswalks", "Only if they are in a group", "In crosswalks and unmarked intersections", "Only at traffic lights"],
+          "answer": "In crosswalks and unmarked intersections"
+        },
+        {
+          "question": "When entering a roundabout, you must yield to:",
+          "options": ["Vehicles behind you", "Vehicles already in the roundabout", "Vehicles on your left", "Pedestrians only"],
+          "answer": "Vehicles already in the roundabout"
+        },
+        {
+          "question": "Emergency vehicles with flashing lights have the right of way:",
+          "options": ["Only in residential areas", "At intersections only", "At all times", "Only when sirens are on"],
+          "answer": "At all times"
+        },
+        {
+          "question": "If you’re entering a main road from a driveway, you must yield to:",
+          "options": ["Nobody", "Pedestrians only", "All vehicles and pedestrians", "Bicycles only"],
+          "answer": "All vehicles and pedestrians"
+        },
+        {
+          "question": "On a T-intersection with no signs, who has the right of way?",
+          "options": ["The vehicle on the through road", "The vehicle turning left", "The vehicle turning right", "The vehicle that stops first"],
+          "answer": "The vehicle on the through road"
+        },
+        {
+          "question": "When merging onto a freeway, who has the right of way?",
+          "options": ["The merging vehicle", "The vehicle already on the freeway", "Whoever is faster", "Large trucks only"],
+          "answer": "The vehicle already on the freeway"
+        },
+        {
+          "question": "If a blind pedestrian is crossing the street, you must:",
+          "options": ["Honk to alert them", "Stop and yield the right of way", "Slow down", "Wave them across"],
+          "answer": "Stop and yield the right of way"
+        },
+        {
+          "question": "At a 4-way stop, if three cars arrive at the same time, who goes last?",
+          "options": ["The car on the right", "The car going straight", "The car turning left", "The car on the left"],
+          "answer": "The car turning left"
+        },
+        {
+          "question": "When approaching an uncontrolled intersection, you must:",
+          "options": ["Slow down and proceed", "Always stop", "Yield to traffic on the right", "Speed up to clear it"],
+          "answer": "Yield to traffic on the right"
+        },
+        {
+          "question": "A pedestrian steps into a crosswalk with a 'Don't Walk' signal, you:",
+          "options": ["Can proceed", "Must yield", "Honk and drive around them", "Flash your lights"],
+          "answer": "Can proceed"
+        },
+        {
+          "question": "Bicyclists at intersections:",
+          "options": ["Always go last", "Have no right of way", "Have the same rights as vehicles", "Must dismount"],
+          "answer": "Have the same rights as vehicles"
+        },
+        {
+          "question": "When a school bus has flashing red lights, who must stop?",
+          "options": ["Only cars behind it", "Only cars in the same lane", "All vehicles in both directions unless on a divided highway", "Only oncoming traffic"],
+          "answer": "All vehicles in both directions unless on a divided highway"
         }
       ]
     },
@@ -57,6 +252,71 @@
           "question": "What is a center left turn lane used for?",
           "options": ["Passing", "Parking", "Left turns", "U-turns only"],
           "answer": "Left turns"
+        },
+        {
+          "question": "Solid yellow lines indicate:",
+          "options": ["No stopping", "No passing", "Merge ahead", "Freeway ends"],
+          "answer": "No passing"
+        },
+        {
+          "question": "You can drive in a bike lane:",
+          "options": ["Anytime", "Only during rush hour", "To park or turn within 200 feet", "Only if no bikes are present"],
+          "answer": "To park or turn within 200 feet"
+        },
+        {
+          "question": "Double solid yellow lines mean:",
+          "options": ["Passing is allowed for both sides", "Passing is not allowed for either side", "You may turn across them", "Only motorcycles may pass"],
+          "answer": "Passing is not allowed for either side"
+        },
+        {
+          "question": "A solid white line between lanes means:",
+          "options": ["Passing is allowed", "Stay in your lane", "Merge quickly", "Yield to left traffic"],
+          "answer": "Stay in your lane"
+        },
+        {
+          "question": "When can you drive on a double white line?",
+          "options": ["To pass slower traffic", "When directed by signs or officials", "At night only", "When avoiding a hazard"],
+          "answer": "When directed by signs or officials"
+        },
+        {
+          "question": "What does a lane marked with diamonds signify?",
+          "options": ["Emergency vehicles only", "HOV/carpool lane", "No entry", "Trucks only"],
+          "answer": "HOV/carpool lane"
+        },
+        {
+          "question": "Which lane should you use to pass another vehicle?",
+          "options": ["Right lane", "Middle lane", "Left lane", "Bike lane"],
+          "answer": "Left lane"
+        },
+        {
+          "question": "If you miss your exit on the freeway, you should:",
+          "options": ["Back up carefully", "Make a U-turn", "Continue and take the next exit", "Stop on the shoulder"],
+          "answer": "Continue and take the next exit"
+        },
+        {
+          "question": "When exiting a freeway, you should:",
+          "options": ["Slow down immediately", "Signal and enter the exit lane early", "Stop in the exit ramp", "Change lanes suddenly"],
+          "answer": "Signal and enter the exit lane early"
+        },
+        {
+          "question": "The right lane on a freeway is generally for:",
+          "options": ["Passing only", "Faster traffic", "Slower traffic", "Emergency stops"],
+          "answer": "Slower traffic"
+        },
+        {
+          "question": "To make a right turn, you should be in:",
+          "options": ["The left lane", "The center lane", "The right lane", "Any lane"],
+          "answer": "The right lane"
+        },
+        {
+          "question": "A broken yellow line next to your lane means:",
+          "options": ["Do not pass", "Passing is allowed", "No U-turns", "Merge zone"],
+          "answer": "Passing is allowed"
+        },
+        {
+          "question": "Center lanes with solid and broken yellow lines are used for:",
+          "options": ["High-speed travel", "Carpooling", "Left turns only", "Stopping only"],
+          "answer": "Left turns only"
         }
       ]
     },
@@ -72,6 +332,71 @@
           "question": "How far must you park from a fire hydrant?",
           "options": ["10 feet", "15 feet", "20 feet", "5 feet"],
           "answer": "15 feet"
+        },
+        {
+          "question": "What does a blue curb mean?",
+          "options": ["No parking", "Passenger loading only", "Disabled parking", "Temporary parking"],
+          "answer": "Disabled parking"
+        },
+        {
+          "question": "What does a green curb mean?",
+          "options": ["Loading only", "Temporary parking allowed", "No parking", "Emergency vehicles only"],
+          "answer": "Temporary parking allowed"
+        },
+        {
+          "question": "What does a yellow curb mean?",
+          "options": ["No stopping", "Taxi stand", "Loading/unloading only", "Disabled parking"],
+          "answer": "Loading/unloading only"
+        },
+        {
+          "question": "When parking uphill with a curb, turn your wheels:",
+          "options": ["Toward the curb", "Straight ahead", "Away from the curb", "Any direction"],
+          "answer": "Away from the curb"
+        },
+        {
+          "question": "When parking downhill with no curb, turn your wheels:",
+          "options": ["Toward the road", "Away from the curb", "Toward the shoulder", "Straight"],
+          "answer": "Toward the shoulder"
+        },
+        {
+          "question": "Double parking is:",
+          "options": ["Allowed briefly", "Allowed with hazard lights", "Never allowed", "Allowed on one-way streets"],
+          "answer": "Never allowed"
+        },
+        {
+          "question": "What is the maximum legal distance from the curb when parking?",
+          "options": ["6 inches", "12 inches", "18 inches", "24 inches"],
+          "answer": "18 inches"
+        },
+        {
+          "question": "You may park in a disabled space if:",
+          "options": ["You turn on hazard lights", "You have a disability placard or license plate", "You’re picking someone up", "You're parking briefly"],
+          "answer": "You have a disability placard or license plate"
+        },
+        {
+          "question": "When parking next to a curb on a level street, you should:",
+          "options": ["Turn wheels toward the curb", "Leave wheels straight", "Turn wheels away from the curb", "Park diagonally"],
+          "answer": "Leave wheels straight"
+        },
+        {
+          "question": "Parking in front of a driveway is:",
+          "options": ["Allowed if for under 5 minutes", "Never allowed", "Allowed with permission", "Allowed with hazard lights on"],
+          "answer": "Never allowed"
+        },
+        {
+          "question": "You may park on the wrong side of the street:",
+          "options": ["To make a delivery", "Only at night", "If there’s no traffic", "Never"],
+          "answer": "Never"
+        },
+        {
+          "question": "When parallel parking, the first step is to:",
+          "options": ["Turn your wheels sharply", "Pull even with the car in front", "Back in quickly", "Angle toward the curb"],
+          "answer": "Pull even with the car in front"
+        },
+        {
+          "question": "You should not park within how many feet of a crosswalk at an intersection?",
+          "options": ["5 feet", "10 feet", "15 feet", "20 feet"],
+          "answer": "20 feet"
         }
       ]
     },
@@ -87,6 +412,71 @@
           "question": "Driving under the influence of marijuana is:",
           "options": ["Legal with a prescription", "Illegal", "Okay if under 21", "Legal on weekends"],
           "answer": "Illegal"
+        },
+        {
+          "question": "What can reduce the effects of alcohol?",
+          "options": ["Coffee", "Time", "Cold shower", "Exercise"],
+          "answer": "Time"
+        },
+        {
+          "question": "Which substance can impair your driving?",
+          "options": ["Alcohol", "Marijuana", "Prescription drugs", "All of the above"],
+          "answer": "All of the above"
+        },
+        {
+          "question": "What is the BAC limit for drivers under 21?",
+          "options": ["0.00%", "0.02%", "0.05%", "0.08%"],
+          "answer": "0.00%"
+        },
+        {
+          "question": "Open containers of alcohol in a vehicle are:",
+          "options": ["Allowed in the trunk", "Allowed in the glove box", "Allowed in the back seat", "Completely legal"],
+          "answer": "Allowed in the trunk"
+        },
+        {
+          "question": "A driver who refuses a chemical test may face:",
+          "options": ["A warning", "A ticket only", "License suspension", "No consequence"],
+          "answer": "License suspension"
+        },
+        {
+          "question": "One drink typically impairs your driving:",
+          "options": ["Not at all", "Only if you're tired", "Even if you don't feel it", "Only after 2 hours"],
+          "answer": "Even if you don't feel it"
+        },
+        {
+          "question": "Prescription medications that affect driving must be:",
+          "options": ["Ignored if prescribed", "Used with caution", "Used freely", "Avoided entirely"],
+          "answer": "Used with caution"
+        },
+        {
+          "question": "Alcohol primarily affects:",
+          "options": ["Hearing", "Judgment and coordination", "Taste", "Appetite"],
+          "answer": "Judgment and coordination"
+        },
+        {
+          "question": "If you are convicted of DUI, you may be required to:",
+          "options": ["Take a nap", "Install an ignition interlock device", "Change your license plate", "Use public transport"],
+          "answer": "Install an ignition interlock device"
+        },
+        {
+          "question": "Marijuana affects driving by:",
+          "options": ["Improving focus", "Slowing reaction time", "Making you faster", "Not affecting anything"],
+          "answer": "Slowing reaction time"
+        },
+        {
+          "question": "Combining alcohol with other drugs can:",
+          "options": ["Cancel out the effects", "Be less dangerous", "Be more dangerous", "Have no impact"],
+          "answer": "Be more dangerous"
+        },
+        {
+          "question": "A designated driver is someone who:",
+          "options": ["Drinks the least", "Drives fast", "Hasn't consumed alcohol", "Pays for drinks"],
+          "answer": "Hasn't consumed alcohol"
+        },
+        {
+          "question": "How long does alcohol typically stay in your system?",
+          "options": ["30 minutes", "1 hour", "Several hours", "15 minutes"],
+          "answer": "Several hours"
         }
       ]
     },
@@ -102,6 +492,71 @@
           "question": "Flashing red traffic lights mean:",
           "options": ["Go", "Yield", "Stop", "Speed up"],
           "answer": "Stop"
+        },
+        {
+          "question": "Before entering an intersection on a green light, you should:",
+          "options": ["Speed up", "Look left and right", "Honk your horn", "Wave to other drivers"],
+          "answer": "Look left and right"
+        },
+        {
+          "question": "At a T-intersection without signs, who has the right-of-way?",
+          "options": ["The vehicle on the through road", "The vehicle turning", "The vehicle on the left", "Pedestrians"],
+          "answer": "The vehicle on the through road"
+        },
+        {
+          "question": "Who must you yield to when turning left at an intersection?",
+          "options": ["Vehicles going straight", "Vehicles turning right", "Vehicles behind you", "None of the above"],
+          "answer": "Vehicles going straight"
+        },
+        {
+          "question": "A flashing yellow light at an intersection means:",
+          "options": ["Stop", "Speed up", "Proceed with caution", "Yield only to trucks"],
+          "answer": "Proceed with caution"
+        },
+        {
+          "question": "What should you do if your view is blocked at an intersection?",
+          "options": ["Proceed slowly", "Stop at the corner", "Move forward slightly and stop again", "Use your horn"],
+          "answer": "Move forward slightly and stop again"
+        },
+        {
+          "question": "When making a right turn at an intersection, you must:",
+          "options": ["Swing wide", "Turn from the far left lane", "Yield to pedestrians", "Honk first"],
+          "answer": "Yield to pedestrians"
+        },
+        {
+          "question": "What does a solid green light at an intersection mean?",
+          "options": ["Go if the way is clear", "Slow down", "Stop immediately", "Yield to cars behind you"],
+          "answer": "Go if the way is clear"
+        },
+        {
+          "question": "At an intersection with a stop sign but no limit line, where should you stop?",
+          "options": ["In the middle of the intersection", "Before entering the crosswalk", "After the sign", "You don't need to stop"],
+          "answer": "Before entering the crosswalk"
+        },
+        {
+          "question": "If a traffic signal is not working at an intersection, you should:",
+          "options": ["Ignore it", "Treat it like a four-way stop", "Speed through", "Wait for police"],
+          "answer": "Treat it like a four-way stop"
+        },
+        {
+          "question": "Before turning left at an intersection, you should:",
+          "options": ["Yield to oncoming traffic", "Honk", "Accelerate", "Turn immediately"],
+          "answer": "Yield to oncoming traffic"
+        },
+        {
+          "question": "You may enter an intersection on a yellow light only if:",
+          "options": ["You're going fast enough", "You can clear it before red", "You honk first", "You’re behind a large truck"],
+          "answer": "You can clear it before red"
+        },
+        {
+          "question": "Roundabouts are designed to:",
+          "options": ["Speed traffic", "Eliminate the need to yield", "Improve safety and traffic flow", "Cause confusion"],
+          "answer": "Improve safety and traffic flow"
+        },
+        {
+          "question": "When approaching an intersection with a yield sign, you must:",
+          "options": ["Speed up", "Always stop", "Slow down and yield to traffic", "Turn around"],
+          "answer": "Slow down and yield to traffic"
         }
       ]
     },
@@ -117,6 +572,231 @@
           "question": "In fog, you should:",
           "options": ["Speed up", "Follow closely", "Use low beams and slow down", "Use high beams"],
           "answer": "Use low beams and slow down"
+        },
+        {
+          "question": "If you cannot see clearly ahead due to fog, you should:",
+          "options": ["Stop on the road", "Drive at the speed limit", "Pull off the road and turn on hazard lights", "Turn on your brights"],
+          "answer": "Pull off the road and turn on hazard lights"
+        },
+        {
+          "question": "What is the main risk of using high beams in fog?",
+          "options": ["They light up better", "They improve visibility", "They reflect off the fog and reduce visibility", "They are required by law"],
+          "answer": "They reflect off the fog and reduce visibility"
+        },
+        {
+          "question": "While driving in fog, what should you do with your speed?",
+          "options": ["Maintain normal speed", "Speed up to get out of it", "Drive slowly and carefully", "Stop in the lane"],
+          "answer": "Drive slowly and carefully"
+        },
+        {
+          "question": "How should you use the road lines when driving in fog?",
+          "options": ["Ignore them", "Follow the center line", "Use the right edge of the road as a guide", "Drive in the middle"],
+          "answer": "Use the right edge of the road as a guide"
+        },
+        {
+          "question": "Why should you avoid passing other vehicles in fog?",
+          "options": ["It’s easier", "You can’t see far enough ahead", "It's fun", "It’s legal in fog"],
+          "answer": "You can’t see far enough ahead"
+        },
+        {
+          "question": "What should you do if the fog becomes too dense to continue safely?",
+          "options": ["Stop in your lane", "Keep driving", "Pull off the road completely and wait", "Use high beams"],
+          "answer": "Pull off the road completely and wait"
+        },
+        {
+          "question": "When visibility is low due to fog, how far ahead should you look?",
+          "options": ["10 seconds ahead", "As far as possible", "Only at your dashboard", "Only behind you"],
+          "answer": "As far as possible"
+        },
+        {
+          "question": "Should you use cruise control in foggy conditions?",
+          "options": ["Yes, always", "Only on highways", "No, because it reduces control", "Only with high beams"],
+          "answer": "No, because it reduces control"
+        },
+        {
+          "question": "What should you do if a vehicle is tailgating you in fog?",
+          "options": ["Speed up", "Brake hard", "Allow it to pass safely", "Turn on your high beams"],
+          "answer": "Allow it to pass safely"
+        },
+        {
+          "question": "If you must drive in fog, what extra precaution should you take?",
+          "options": ["Turn off your lights", "Flash your brights frequently", "Keep a greater following distance", "Drive in the left lane only"],
+          "answer": "Keep a greater following distance"
+        },
+        {
+          "question": "What is the safest way to warn others that you are pulled off the road due to fog?",
+          "options": ["Use hazard lights", "Wave at other cars", "Turn off your car", "Sound your horn repeatedly"],
+          "answer": "Use hazard lights"
+        },
+        {
+          "question": "When exiting the freeway in fog, you should:",
+          "options": ["Slow down gradually", "Stop suddenly", "Turn off your lights", "Pull into the median"],
+          "answer": "Slow down gradually"
+        },
+        {
+          "question": "In heavy fog, if you can't see well enough to drive safely, what should you do?",
+          "options": ["Keep driving carefully", "Speed up to escape it", "Pull off the road and stop", "Turn on interior lights"],
+          "answer": "Pull off the road and stop"
+        }
+      ]
+    },
+    {
+      "name": "Numbers-Based Questions",
+      "questions": [
+        {
+          "question": "What is the speed limit in a residential area unless otherwise posted?",
+          "options": ["25 mph", "30 mph", "35 mph", "20 mph"],
+          "answer": "25 mph"
+        },
+        {
+          "question": "How far must you park from a fire hydrant?",
+          "options": ["10 feet", "15 feet", "20 feet", "5 feet"],
+          "answer": "15 feet"
+        },
+        {
+          "question": "What is the legal BAC limit for drivers over 21?",
+          "options": ["0.01%", "0.05%", "0.08%", "0.10%"],
+          "answer": "0.08%"
+        },
+        {
+          "question": "What is the legal BAC limit for drivers under 21?",
+          "options": ["0.00%", "0.01%", "0.05%", "0.08%"],
+          "answer": "0.01%"
+        },
+        {
+          "question": "What is the speed limit in a school zone when children are present?",
+          "options": ["15 mph", "20 mph", "25 mph", "30 mph"],
+          "answer": "25 mph"
+        },
+        {
+          "question": "What is the maximum speed limit on most California highways?",
+          "options": ["55 mph", "65 mph", "70 mph", "75 mph"],
+          "answer": "65 mph"
+        },
+        {
+          "question": "How many feet before turning should you signal?",
+          "options": ["50 feet", "100 feet", "150 feet", "200 feet"],
+          "answer": "100 feet"
+        },
+        {
+          "question": "When parallel parking, how close should your car be to the curb?",
+          "options": ["6 inches", "12 inches", "18 inches", "24 inches"],
+          "answer": "18 inches"
+        },
+        {
+          "question": "How far should you stop from a railroad crossing when warning devices are active?",
+          "options": ["5 feet", "10 feet", "15 feet", "20 feet"],
+          "answer": "15 feet"
+        },
+        {
+          "question": "How many seconds ahead should you scan the road?",
+          "options": ["3 to 5 seconds", "5 to 7 seconds", "10 to 15 seconds", "15 to 20 seconds"],
+          "answer": "10 to 15 seconds"
+        },
+        {
+          "question": "What is the minimum tread depth required for tires?",
+          "options": ["1/16 inch", "1/8 inch", "1/4 inch", "1/2 inch"],
+          "answer": "1/32 inch"
+        },
+        {
+          "question": "What is the penalty for a first DUI offense in California?",
+          "options": ["$250", "$500", "$1000", "$2000"],
+          "answer": "$1000"
+        },
+        {
+          "question": "How many inches can an object extend from the side of your vehicle?",
+          "options": ["3 inches", "6 inches", "9 inches", "12 inches"],
+          "answer": "6 inches"
+        },
+        {
+          "question": "How many days do you have to report a car sale to the DMV?",
+          "options": ["3 days", "5 days", "10 days", "15 days"],
+          "answer": "5 days"
+        },
+        {
+          "question": "How many days do you have to notify the DMV of an address change?",
+          "options": ["5 days", "10 days", "15 days", "30 days"],
+          "answer": "10 days"
+        }
+      ]
+    },
+    {
+      "name": "Commonly Wrong Questions",
+      "questions": [
+        {
+          "question": "When must you use your headlights?",
+          "options": ["Only at night", "When visibility is less than 1000 feet", "When raining", "Only on highways"],
+          "answer": "When visibility is less than 1000 feet"
+        },
+        {
+          "question": "What does a flashing yellow traffic signal mean?",
+          "options": ["Stop", "Proceed with caution", "Speed up", "Yield"],
+          "answer": "Proceed with caution"
+        },
+        {
+          "question": "When can you legally drive in a bike lane?",
+          "options": ["To pass a slow vehicle", "Within 200 feet before making a right turn", "Never", "At all times"],
+          "answer": "Within 200 feet before making a right turn"
+        },
+        {
+          "question": "What is the correct hand signal for a left turn?",
+          "options": ["Left arm straight out", "Left arm bent upward", "Left arm bent downward", "Right arm straight out"],
+          "answer": "Left arm straight out"
+        },
+        {
+          "question": "How close can you park to a crosswalk?",
+          "options": ["Within 7.5 feet", "Within 10 feet", "Within 20 feet", "Within 5 feet"],
+          "answer": "Within 7.5 feet"
+        },
+        {
+          "question": "When approaching a school bus with flashing red lights, you must:",
+          "options": ["Stop only if you’re behind the bus", "Stop regardless of direction", "Slow down and pass carefully", "Ignore the bus if lanes are separated"],
+          "answer": "Stop regardless of direction"
+        },
+        {
+          "question": "What does a double solid yellow line mean?",
+          "options": ["Passing allowed both ways", "No passing in either direction", "Passing allowed on your side only", "Passing allowed during daylight"],
+          "answer": "No passing in either direction"
+        },
+        {
+          "question": "If you see an emergency vehicle with flashing lights behind you, you should:",
+          "options": ["Speed up to get out of the way", "Stop immediately where you are", "Pull over to the right and stop", "Ignore and continue driving"],
+          "answer": "Pull over to the right and stop"
+        },
+        {
+          "question": "When is it legal to use a cell phone without a hands-free device while driving?",
+          "options": ["When stopped at a red light", "During emergencies only", "While driving under 25 mph", "Never"],
+          "answer": "During emergencies only"
+        },
+        {
+          "question": "How far must you stop from a railroad crossing when a train is approaching?",
+          "options": ["5 feet", "10 feet", "15 feet", "20 feet"],
+          "answer": "15 feet"
+        },
+        {
+          "question": "You may drive in a bike lane to prepare for a turn:",
+          "options": ["At any time", "Within 200 feet of the turn", "Only during daylight", "Only if no bicyclists are present"],
+          "answer": "Within 200 feet of the turn"
+        },
+        {
+          "question": "What is the safest following distance under ideal conditions?",
+          "options": ["1 second", "2 seconds", "3 seconds", "4 seconds"],
+          "answer": "3 seconds"
+        },
+        {
+          "question": "If your vehicle starts to skid on ice, you should:",
+          "options": ["Brake hard", "Turn the wheel into the skid", "Turn the wheel away from the skid", "Speed up"],
+          "answer": "Turn the wheel into the skid"
+        },
+        {
+          "question": "When parking uphill on a street with a curb, you should turn your front wheels:",
+          "options": ["Toward the curb", "Away from the curb", "Parallel to the curb", "Any direction"],
+          "answer": "Away from the curb"
+        },
+        {
+          "question": "What does a solid white line on the right edge of the highway mean?",
+          "options": ["Traffic lane boundary", "Shoulder or edge of the road", "Passing zone", "No stopping zone"],
+          "answer": "Shoulder or edge of the road"
         }
       ]
     },
