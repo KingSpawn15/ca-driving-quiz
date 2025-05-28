@@ -132,6 +132,71 @@
           "question": "Scanning the road ahead helps you:",
           "options": ["Speed up", "Avoid hazards early", "Tailgate safely", "Use your phone"],
           "answer": "Avoid hazards early"
+        },
+        {
+          "question": "When should you use your mirrors?",
+          "options": ["Only when turning", "Frequently, to stay aware of your surroundings", "Only on highways", "Never while reversing"],
+          "answer": "Frequently, to stay aware of your surroundings"
+        },
+        {
+          "question": "A safe following distance in good weather is:",
+          "options": ["1 second", "2 seconds", "4 seconds", "10 seconds"],
+          "answer": "2 seconds"
+        },
+        {
+          "question": "When driving defensively, you should:",
+          "options": ["Make eye contact with pedestrians", "Expect the unexpected", "Drive faster than traffic", "Avoid using your seatbelt"],
+          "answer": "Expect the unexpected"
+        },
+        {
+          "question": "The '3-second rule' is used to determine:",
+          "options": ["How long to wait at a stop sign", "The distance between you and the car ahead", "Reaction time", "Red light duration"],
+          "answer": "The distance between you and the car ahead"
+        },
+        {
+          "question": "If a driver is tailgating you, the best response is to:",
+          "options": ["Brake check them", "Speed up", "Move to another lane or slow down to let them pass", "Honk repeatedly"],
+          "answer": "Move to another lane or slow down to let them pass"
+        },
+        {
+          "question": "Defensive drivers avoid:",
+          "options": ["Keeping their hands on the wheel", "Being predictable", "Distractions like phones", "Using turn signals"],
+          "answer": "Distractions like phones"
+        },
+        {
+          "question": "When approaching an intersection, you should:",
+          "options": ["Speed up", "Assume others will stop", "Check all directions for traffic", "Only check to your left"],
+          "answer": "Check all directions for traffic"
+        },
+        {
+          "question": "To drive defensively in fog, you should:",
+          "options": ["Use high beams", "Speed up to clear the fog faster", "Use low beams and increase following distance", "Drive with hazard lights on constantly"],
+          "answer": "Use low beams and increase following distance"
+        },
+        {
+          "question": "When changing lanes, a defensive driver will:",
+          "options": ["Use mirrors and turn signals", "Speed up suddenly", "Cut off other drivers", "Not look around"],
+          "answer": "Use mirrors and turn signals"
+        },
+        {
+          "question": "If you're feeling drowsy while driving, you should:",
+          "options": ["Roll down the windows", "Drink coffee and keep going", "Pull over and rest", "Turn up the music loudly"],
+          "answer": "Pull over and rest"
+        },
+        {
+          "question": "Aggressive driving behaviors include:",
+          "options": ["Yielding right of way", "Tailgating", "Signaling before turning", "Keeping a safe distance"],
+          "answer": "Tailgating"
+        },
+        {
+          "question": "When another driver makes a mistake, you should:",
+          "options": ["Honk aggressively", "Flash your high beams", "Stay calm and give them space", "Yell from your window"],
+          "answer": "Stay calm and give them space"
+        },
+        {
+          "question": "Why is defensive driving important?",
+          "options": ["To get to your destination faster", "To avoid getting pulled over", "To reduce the risk of accidents", "To impress your passengers"],
+          "answer": "To reduce the risk of accidents"
         }
       ]
     }
